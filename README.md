@@ -1,2 +1,2 @@
-# MultiTast-TabNet-MTabNet-
+# MultiTask-TabNet-MTabNet-
 For reconstruction of Tabular Neural Network. 
