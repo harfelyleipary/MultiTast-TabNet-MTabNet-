@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SDGDetail</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+		<style type="text/tailwindcss">
+		@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --font-font-sans: var(--font-sans);
+  --font-font-heading: var(--font-heading);
+  --font-font-serif: var(--font-serif);
+  --font-font-mono: var(--font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+  --tracking-normal: var(--tracking-normal);
+}
+
+		:root {
+			--background: #f0f4f8;
+			--foreground: #1a2332;
+			--primary: #2e7d32;
+			--primary-foreground: #ffffff;
+			--secondary: #0288d1;
+			--secondary-foreground: #ffffff;
+			--muted: #e2e8f0;
+			--muted-foreground: #64748b;
+			--accent: #1976d2;
+			--accent-foreground: #ffffff;
+			--destructive: #d32f2f;
+			--card: #ffffff;
+			--card-foreground: #1a2332;
+			--popover: #ffffff;
+			--popover-foreground: #1a2332;
+			--border: #e2e8f0;
+			--input: #f8fafc;
+			--ring: #2e7d32;
+			--sidebar: #ffffff;
+			--sidebar-foreground: #1a2332;
+			--sidebar-primary: #2e7d32;
+			--sidebar-primary-foreground: #ffffff;
+			--sidebar-accent: #e8f5e9;
+			--sidebar-accent-foreground: #2e7d32;
+			--sidebar-border: #e2e8f0;
+			--sidebar-ring: #2e7d32;
+			--chart-1: #2e7d32;
+			--chart-2: #0288d1;
+			--chart-3: #f57c00;
+			--chart-4: #c62828;
+			--chart-5: #7b1fa2;
+
+			--font-sans: "Plus Jakarta Sans";
+			--font-heading: "Plus Jakarta Sans";
+			--font-serif: "Playfair Display";
+			--font-mono: "JetBrains Mono";
+
+			--radius: 0.5rem;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="flex flex-col h-full bg-background">
+			<div class="flex items-center justify-between px-4 py-3 bg-card border-b">
+				<button class="flex items-center justify-center size-11">
+					<iconify-icon
+						icon="solar:arrow-left-linear"
+						class="size-6 text-foreground"
+					></iconify-icon>
+				</button>
+				<h1 class="text-lg font-semibold font-heading">SDG Details</h1>
+				<button class="flex items-center justify-center size-11">
+					<iconify-icon
+						icon="solar:bookmark-bold"
+						class="size-6 text-muted-foreground"
+					></iconify-icon>
+				</button>
+			</div>
+			<div class="flex-1 overflow-y-auto pb-20">
+				<div class="bg-destructive/5 px-4 py-8 text-center">
+					<div
+						class="size-20 rounded-2xl bg-destructive/10 flex items-center justify-center mx-auto mb-3"
+					>
+						<iconify-icon
+							icon="solar:hand-heart-bold"
+							class="size-10 text-destructive"
+						></iconify-icon>
+					</div>
+					<h2 class="text-2xl font-bold font-heading mb-1">SDG 1: No Poverty</h2>
+					<p class="text-sm text-muted-foreground">End poverty in all its forms everywhere</p>
+				</div>
+				<div class="p-4 space-y-4">
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Current Status</h3>
+						<div class="flex items-center justify-between mb-3">
+							<span class="text-sm text-muted-foreground">Prediction Score</span><span
+								class="text-2xl font-bold text-destructive"
+								>58%</span
+							>
+						</div>
+						<div class="h-3 bg-muted rounded-full overflow-hidden mb-2">
+							<div class="h-full w-[58%] bg-destructive rounded-full"/>
+						</div>
+						<div class="flex items-center gap-2">
+							<div class="size-2 bg-destructive rounded-full"/>
+							<span class="text-xs text-muted-foreground">Off Track - Needs Attention</span>
+						</div>
+					</div>
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Key Indicators</h3>
+						<div class="space-y-4">
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">People Below Poverty Line</span><span
+										class="text-sm font-semibold text-destructive"
+										>9.8%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[9.8%] bg-destructive rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Access to Basic Services</span><span
+										class="text-sm font-semibold text-chart-3"
+										>73%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[73%] bg-chart-3 rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Social Protection Coverage</span><span
+										class="text-sm font-semibold text-primary"
+										>82%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[82%] bg-primary rounded-full"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Prediction Trends</h3>
+						<div class="mb-4">
+							<div class="flex items-center gap-4 mb-3">
+								<div class="flex items-center gap-2">
+									<div class="size-3 bg-secondary rounded-full"/>
+									<span class="text-xs text-muted-foreground">Historical</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<div class="size-3 bg-destructive rounded-full"/>
+									<span class="text-xs text-muted-foreground">Projected</span>
+								</div>
+							</div>
+							<div class="flex items-end justify-between gap-2 h-32">
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-secondary/20 rounded-t h-20"/>
+									<span class="text-xs text-muted-foreground">2020</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-secondary/20 rounded-t h-24"/>
+									<span class="text-xs text-muted-foreground">2021</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-secondary/20 rounded-t h-26"/>
+									<span class="text-xs text-muted-foreground">2022</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-secondary rounded-t h-28"/>
+									<span class="text-xs text-muted-foreground">2023</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-destructive/30 rounded-t h-24"/>
+									<span class="text-xs text-muted-foreground">2024</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-destructive/30 rounded-t h-22"/>
+									<span class="text-xs text-muted-foreground">2025</span>
+								</div>
+								<div class="flex flex-col items-center gap-1 flex-1">
+									<div class="w-full bg-destructive/30 rounded-t h-20"/>
+									<span class="text-xs text-muted-foreground">2026</span>
+								</div>
+							</div>
+						</div>
+						<div class="bg-destructive/10 rounded-xl p-3 flex items-start gap-3">
+							<iconify-icon
+								icon="solar:info-circle-bold"
+								class="size-5 text-destructive flex-shrink-0 mt-0.5"
+							></iconify-icon>
+							<p class="text-xs text-foreground">
+								Current trends indicate a decline in progress. Immediate action required to meet
+								2030 targets.
+							</p>
+						</div>
+					</div>
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Regional Performance</h3>
+						<div class="space-y-3">
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">DKI Jakarta</span><span
+										class="text-sm font-semibold text-primary"
+										>87%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[87%] bg-primary rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Jawa Barat</span><span
+										class="text-sm font-semibold text-chart-3"
+										>68%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[68%] bg-chart-3 rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Jawa Timur</span><span
+										class="text-sm font-semibold text-chart-3"
+										>71%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[71%] bg-chart-3 rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Papua</span><span
+										class="text-sm font-semibold text-destructive"
+										>42%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[42%] bg-destructive rounded-full"/>
+								</div>
+							</div>
+							<div>
+								<div class="flex items-center justify-between mb-2">
+									<span class="text-sm text-foreground">Maluku</span><span
+										class="text-sm font-semibold text-destructive"
+										>48%</span
+									>
+								</div>
+								<div class="h-2 bg-muted rounded-full overflow-hidden">
+									<div class="h-full w-[48%] bg-destructive rounded-full"/>
+								</div>
+							</div>
+						</div>
+						<button class="w-full mt-4 py-2.5 text-sm font-medium text-accent">
+							View All Provinces
+						</button>
+					</div>
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Action Items</h3>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3">
+								<div
+									class="size-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+								>
+									<iconify-icon
+										icon="solar:check-circle-bold"
+										class="size-4 text-primary"
+									></iconify-icon>
+								</div>
+								<div class="flex-1">
+									<p class="text-sm font-medium text-foreground mb-1">
+										Expand Social Safety Net Programs
+									</p>
+									<p class="text-xs text-muted-foreground">
+										Increase coverage of cash transfer programs in rural areas
+									</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									class="size-6 rounded-full bg-chart-3/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+								>
+									<iconify-icon
+										icon="solar:clipboard-list-bold"
+										class="size-4 text-chart-3"
+									></iconify-icon>
+								</div>
+								<div class="flex-1">
+									<p class="text-sm font-medium text-foreground mb-1">
+										Improve Access to Basic Services
+									</p>
+									<p class="text-xs text-muted-foreground">
+										Focus on healthcare, education, and infrastructure in underserved regions
+									</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									class="size-6 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+								>
+									<iconify-icon
+										icon="solar:chart-2-bold"
+										class="size-4 text-secondary"
+									></iconify-icon>
+								</div>
+								<div class="flex-1">
+									<p class="text-sm font-medium text-foreground mb-1">
+										Promote Economic Opportunities
+									</p>
+									<p class="text-xs text-muted-foreground">
+										Support microfinance and small business development initiatives
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-card rounded-2xl p-4">
+						<h3 class="text-base font-semibold font-heading mb-4">Learn More</h3>
+						<div class="space-y-3">
+							<button class="w-full flex items-center gap-3 p-3 rounded-xl bg-accent/5">
+								<div
+									class="size-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
+								>
+									<iconify-icon icon="solar:book-bold" class="size-5 text-accent"></iconify-icon>
+								</div>
+								<div class="flex-1 text-left">
+									<p class="text-sm font-medium text-foreground">
+										Understanding Poverty in Indonesia
+									</p>
+									<p class="text-xs text-muted-foreground">Educational resources and statistics</p>
+								</div>
+								<iconify-icon
+									icon="solar:arrow-right-linear"
+									class="size-5 text-muted-foreground flex-shrink-0"
+								></iconify-icon>
+							</button>
+							<button class="w-full flex items-center gap-3 p-3 rounded-xl bg-accent/5">
+								<div
+									class="size-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
+								>
+									<iconify-icon
+										icon="solar:document-text-bold"
+										class="size-5 text-accent"
+									></iconify-icon>
+								</div>
+								<div class="flex-1 text-left">
+									<p class="text-sm font-medium text-foreground">National Poverty Reports</p>
+									<p class="text-xs text-muted-foreground">Official government publications</p>
+								</div>
+								<iconify-icon
+									icon="solar:arrow-right-linear"
+									class="size-5 text-muted-foreground flex-shrink-0"
+								></iconify-icon>
+							</button>
+							<button class="w-full flex items-center gap-3 p-3 rounded-xl bg-accent/5">
+								<div
+									class="size-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
+								>
+									<iconify-icon icon="solar:global-bold" class="size-5 text-accent"></iconify-icon>
+								</div>
+								<div class="flex-1 text-left">
+									<p class="text-sm font-medium text-foreground">UN SDG 1 Resources</p>
+									<p class="text-xs text-muted-foreground">Global perspective and best practices</p>
+								</div>
+								<iconify-icon
+									icon="solar:arrow-right-linear"
+									class="size-5 text-muted-foreground flex-shrink-0"
+								></iconify-icon>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fixed bottom-0 left-0 right-0 bg-background border-t">
+				<div class="flex items-center justify-around px-4 py-3">
+					<button class="flex flex-col items-center gap-1">
+						<div class="size-6 flex items-center justify-center">
+							<iconify-icon
+								icon="solar:home-2-bold"
+								class="size-6 text-muted-foreground"
+							></iconify-icon>
+						</div>
+						<span class="text-xs text-muted-foreground">Home</span>
+					</button>
+					<button class="flex flex-col items-center gap-1">
+						<div class="size-6 flex items-center justify-center">
+							<iconify-icon
+								icon="solar:graph-up-bold"
+								class="size-6 text-muted-foreground"
+							></iconify-icon>
+						</div>
+						<span class="text-xs text-muted-foreground">Predictions</span>
+					</button>
+					<button class="flex flex-col items-center gap-1">
+						<div class="size-6 flex items-center justify-center">
+							<iconify-icon
+								icon="solar:document-text-bold"
+								class="size-6 text-muted-foreground"
+							></iconify-icon>
+						</div>
+						<span class="text-xs text-muted-foreground">Reports</span>
+					</button>
+					<button class="flex flex-col items-center gap-1">
+						<div class="size-6 flex items-center justify-center">
+							<iconify-icon
+								icon="solar:user-bold"
+								class="size-6 text-muted-foreground"
+							></iconify-icon>
+						</div>
+						<span class="text-xs text-muted-foreground">Profile</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
